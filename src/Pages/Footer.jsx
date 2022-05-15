@@ -11,9 +11,6 @@ const Footer = () => {
         </a>
 
         <ul className="flex items-center space-x-4">
-          <li className="hover:text-main-100 text-white hidden md:inline-block">
-            <Link to="/signup">Create account</Link>
-          </li>
           <li className=" px-6 py-2 rounded-md bg-main-100 text-white">
             <Link to="/login">Login</Link>
           </li>

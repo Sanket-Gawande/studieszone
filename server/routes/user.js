@@ -32,8 +32,8 @@ router.post("/signup", async (req, res) => {
       service: "hotmail",
 
       auth: {
-        user: process.env.HOTMAIL_USER,
-        pass: process.env.HOTMAIL_PASS,
+        user: "javascript.developer@outlook.com",
+        pass: "javascript.0dev@gmail.com",
       },
     });
     const message = {
@@ -45,14 +45,16 @@ router.post("/signup", async (req, res) => {
       <p>from studieszone</p>
       `,
     };
-    const mailStatus = await transporter.sendMail(message);
+     transporter.sendMail(message , (error  , info) => {
+       console.log({error , info})
+     });
 
     res.status(201).send({ user: saveUser });
   } catch (error) {
     console.log({ error });
     res
       .status(401)
-      .send({ msg: "Email exists already , all fields are mandatory " });
+      .send({ msg: "Email exists already , all fields are mandatory ", error });
   }
 });
 

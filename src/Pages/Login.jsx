@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Header from './Header'
 const Login = () => {
   const buttonLogin= useRef();
@@ -36,24 +36,24 @@ buttonLogin.current.innerHTML = "Please wait..."
       <p className="py-4 px-4 bg-slate-200  text-sm font-thin ">
         Home &gt; Login
       </p>
-      <div className="bg-slate-100 h-[calc(100vh-160px)] grid place-items-center">
+      <div className="bg-slate-100 h-[calc(100vh-240px)] grid place-items-center">
         <form
           onSubmit={submitLogin}
-          className="bg-white shadow-sm p-8 w-[400px]"
+          className="bg-white shadow-lg px-12 py-8 w-[90%]  md:w-[500px]"
         >
           <h2 className="mb-8 font-semibold">Login here !</h2>
           <input
             required
             type="text"
             placeholder="email"
-            className="rounded-md outline-0 my-4 block mx-auto text-secondary-100 px-2 py-1 border w-[90%]"
+            className="rounded-md outline-0 my-4 block mx-auto text-secondary-100 px-2 py-1 border w-full"
             name="email"
           />
           <input
             required
             type="password"
             placeholder="password"
-            className="rounded-md outline-0 my-6 block mx-auto text-secondary-100 px-2 py-1 border w-[90%]"
+            className="rounded-md outline-0 my-6 block mx-auto text-secondary-100 px-2 py-1 border w-full"
             name="password"
           />
           <button
@@ -63,6 +63,7 @@ buttonLogin.current.innerHTML = "Please wait..."
           >
             Login !
           </button>
+          <p className='text-sm  my-4'>Not have an account , <Link to="/signup" className="text-main-100">Signup here</Link></p>
         </form>
       </div>
       {/* <!-- simple footer component  --> */}

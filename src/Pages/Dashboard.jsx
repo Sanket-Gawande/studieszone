@@ -34,7 +34,7 @@ const Dashboard = () => {
       <div className="flex justify-between flex-col md:flex-row items-center bg-slate-100 h-[calc(100vh-180px)] p-4 md:p-8 lg:px-40">
         {/* user card div  */}
 
-        <div className="p-8 bg-white shadow-md shadow-slate-300 w-[90%] md:w-auto">
+        <div className="p-8 bg-white shadow-md shadow-slate-300 w-[95%] md:w-auto">
           <h2 className="text-main-100 text-3xl font-semibold">{user.name}</h2>
           <p className="text-md text-slate-400 my-4">{user.email}</p>
           <p className="inline-block font-medium text-[12px] text-slate-800">
@@ -54,10 +54,10 @@ const Dashboard = () => {
           </a>
         </div>
 
-        <div className="mx-4 min-w-[450px] p-4 md:p-8 h-full overflow-y-scroll w-[90%] md:w-auto my-4">
+        <div className="mx-4 lg:min-w-[450px] p-4 md:p-8 h-full overflow-y-scroll w-full  md:w-auto my-4">
           {data?.map((obj) => {
             return (
-              <div className="bg-white  shadow-sm p-8 my-4 w-full md:w-[450px]">
+              <div className="bg-white  shadow-sm p-8 my-4 w-full lg:w-[450px]">
                 <h4 className="text-main-100 text-lg font-semibold my-2">
                   Company name : {obj.companyName}
                 </h4>

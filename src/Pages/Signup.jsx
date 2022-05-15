@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 
-
 const Signup = () => {
   const buttonSignup = useRef()
   const navigate = useNavigate()
@@ -27,7 +26,7 @@ const Signup = () => {
 
   async function submitACC(e) {
     e.preventDefault()
-buttonSignup.current.innerHTML = "Please wait ..."
+    buttonSignup.current.innerHTML = 'Please wait ...'
     const raw = await fetch(`${base_url}/signup`, {
       method: 'post',
       body: new FormData(e.target),
@@ -35,7 +34,7 @@ buttonSignup.current.innerHTML = "Please wait ..."
     const result = await raw.json()
 
     if (result.msg) {
-      buttonSignup.current.innerHTML = "Create account"
+      buttonSignup.current.innerHTML = 'Create account'
       alert(result.msg)
     } else {
       localStorage.setItem('profile', JSON.stringify(result))
@@ -50,11 +49,11 @@ buttonSignup.current.innerHTML = "Please wait ..."
         Home &gt; Signup
       </p>
       {/* <!-- signup form starts here  --> */}
-      <div className="bg-slate-100 h-[calc(100vh-160px)] grid place-items-center">
+      <div className="bg-slate-100 min-h-[calc(100vh-240px)] grid place-items-center">
         <form
           method="post"
           onSubmit={submitACC}
-          className="bg-white shadow-sm p-8 w-[400px]"
+          className="bg-white shadow-lg p-8 md:px-12 w-[90%] my-4  md:w-[500px]"
         >
           <h2 className="mb-8 font-semibold">Register here !</h2>
           <input
@@ -109,7 +108,7 @@ buttonSignup.current.innerHTML = "Please wait ..."
             name="cpassword"
           />
           <button
-          ref={buttonSignup}
+            ref={buttonSignup}
             type="submit"
             className="rounded-md mx-[5%] bg-main-100 py-2 px-4 text-sm text-white"
           >
@@ -126,9 +125,6 @@ buttonSignup.current.innerHTML = "Please wait ..."
           </a>
 
           <ul className="flex items-center space-x-4">
-            <li className="hover:text-main-100 text-white">
-              <a href="./signup.html">Create account</a>
-            </li>
             <li className="px-6 py-2 rounded-md bg-main-100 text-white">
               <a href="./login.html">Login</a>
             </li>
