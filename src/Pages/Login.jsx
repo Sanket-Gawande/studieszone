@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Header from './Header'
 const Login = () => {
-  const buttonLogin= useRef();
+  const buttonLogin = useRef()
   const navigate = useNavigate()
   const obj = JSON.parse(localStorage.getItem('profile'))
   const user = obj?.user
@@ -11,10 +11,10 @@ const Login = () => {
       navigate('/dashboard')
     }
   })
-  const base_url =import.meta.env.VITE_SERVER_BASE_URL
+  const base_url = import.meta.env.VITE_SERVER_BASE_URL
   async function submitLogin(e) {
     e.preventDefault()
-buttonLogin.current.innerHTML = "Please wait..."
+    buttonLogin.current.innerHTML = 'Please wait...'
     const raw = await fetch(`${base_url}/login`, {
       method: 'post',
       body: new FormData(e.target),
@@ -22,7 +22,7 @@ buttonLogin.current.innerHTML = "Please wait..."
     const result = await raw.json()
     console.log({ result })
     if (result.msg) {
-      buttonLogin.current.innerHTML = "Login"
+      buttonLogin.current.innerHTML = 'Login'
       alert(result.msg)
     } else {
       localStorage.setItem('profile', JSON.stringify(result))
@@ -31,7 +31,7 @@ buttonLogin.current.innerHTML = "Please wait..."
   }
   return (
     <>
-    <Header/>
+      <Header />
       {/* <!-- login form starts here  --> */}
       <p className="py-4 px-4 bg-slate-200  text-sm font-thin ">
         Home &gt; Login
@@ -57,13 +57,18 @@ buttonLogin.current.innerHTML = "Please wait..."
             name="password"
           />
           <button
-          ref={buttonLogin}
+            ref={buttonLogin}
             type="submit"
             className="rounded-md mx-[5%] bg-main-100 py-2 px-4 text-sm text-white"
           >
             Login !
           </button>
-          <p className='text-sm  my-4'>Not have an account , <Link to="/signup" className="text-main-100">Signup here</Link></p>
+          <p className="text-sm  my-4">
+            Not have an account ,{' '}
+            <Link to="/signup" className="text-main-100">
+              Signup here
+            </Link>
+          </p>
         </form>
       </div>
       {/* <!-- simple footer component  --> */}
@@ -75,9 +80,6 @@ buttonLogin.current.innerHTML = "Please wait..."
           </a>
 
           <ul className="flex items-center space-x-4">
-            <li className="hover:text-main-100 text-white">
-              <a href="./signup.html">Create account</a>
-            </li>
             <li className="px-6 py-2 rounded-md bg-main-100 text-white">
               <a href="./login.html">Login</a>
             </li>
